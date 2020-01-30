@@ -102,7 +102,7 @@ int startTCPSocketCli(){
 
       /*
       *
-      *If client achiev connection
+      *If client achieve connection
       */
       if(connect(sock, (SOCKADDR*)&sockIn, sizeof(sockIn)) != SOCKET_ERROR){
         printf("Connexion reussi à : %s sur le port : %d \n", inet_ntoa(sockIn.sin_addr), htons(sockIn.sin_port));
