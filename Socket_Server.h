@@ -1,3 +1,3 @@
 int startTCPSocketServ();
 int startTCPSocketCli();
-void sendMsg();
+void sendMsgSrv(int socket);

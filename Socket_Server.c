@@ -122,10 +122,24 @@ int startTCPSocketServ(){
           printf("\nConnexion établie avec le client !\n");
           printf("\nChargement de la partie... \n");
 
-          printf("Envoyer un message (1) :");
-          switch (userChoice) {
-            case 1:sendMsg();break;
-          }
+
+          char buffer[80] = "Bonjour ! Bienvenue sur mon serveur :) \n";
+
+            printf("mesasge à envoyer : %s \n", buffer);
+            sockError = send(sock, buffer, 80, 0);
+
+              if(sockError != SOCKET_ERROR){
+                printf("Chaine envoyée : %s\n", buffer);
+              }
+              else{
+                printf("Erreur de transmission\n");
+              }
+
+
+              /* Il ne faut pas oublier de fermer la connexion (fermée dans les deux sens) */
+              shutdown(sock, 2);
+
+            sendMsgSrv(sock);
 
           closesocket(sock);
           }

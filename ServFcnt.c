@@ -38,7 +38,7 @@
 
 #endif
 
-void sendMsg(){
+void sendMsgSrv( int socket){
+printf("Msg\n");
 
-  
 }

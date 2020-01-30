@@ -67,6 +67,7 @@ int startTCPSocketCli(){
     int windWSAError= 0;
   #endif
 
+  char buffer[80];
   printf("\nLancement de la créatoin du client...\n");
 
   /*
@@ -106,6 +107,19 @@ int startTCPSocketCli(){
       */
       if(connect(sock, (SOCKADDR*)&sockIn, sizeof(sockIn)) != SOCKET_ERROR){
         printf("Connexion reussi à : %s sur le port : %d \n", inet_ntoa(sockIn.sin_addr), htons(sockIn.sin_port));
+
+        if(recv(sock, buffer, 80, 0) != SOCKET_ERROR){
+          printf("[Serveur] : %s\n", buffer);
+        }
+        else{
+
+        }
+
+
+
+
+
+
       }
       else{
         printf("Impossble de se connecter au serveur... :( \n");
